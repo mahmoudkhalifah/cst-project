@@ -5,17 +5,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To do List</title>
+    
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
 </head>
 <body>
     
-    <div class="main">
-
-        
-    </div>
-
+    
     <div id="category">
-
+        <label>Enter a category: </label>
+        <input id="newCategoryNameInput" type="text" name="category">
+        <br>
+        <input id="newCategoryColorInput" type="color" name="color">
+        <br>
+        <br>
+        <input id="submitNewCategoryBtn" type="button" value="Enter">
     </div>
+    
+    <div id="mainContainerDiv">
 
+        <input id="dateInput" type="date" name="date">
+        <select id="categoryFilterSelect">
+
+        </select>
+        
+        <div id="dayTasksDiv">
+
+        </div>
+
+        <div id="newTaskDiv">
+            <label>Task name: </label>
+            <br>
+            <input id="newTaskNameInput" placeholder="Task name:" type="text" name="taskName">
+            <br>
+            <select id="newTaskCategorySelect">
+
+            </select>
+            <br>
+            <!-- for showing category div -->
+            <input id="popUpBtn" type="button" value="toggle Category btn">
+            <br>
+            <br>
+            <input id="addTaskBtn" type="button" value="add task" onclick="">
+        </div>
+    </div>
 </body>
 </html>
