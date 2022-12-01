@@ -60,6 +60,8 @@ function addTaskNode() {
 }
 
 function retrieveTasks(){
+    document.getElementById("categoryFilterSelect").selectedIndex = 0;
+
     var date = document.getElementById("dateInput").value;
     let dayTaskDiv = document.getElementById("dayTasksDiv");
     dayTaskDiv.innerHTML="";
