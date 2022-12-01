@@ -63,7 +63,6 @@ function updateCtegories(category)
 {
     let categoriesListSelect = document.getElementById("newTaskCategorySelect");
     let option = document.createElement("option");
-    option.name = "newTaskCategory";
     option.value = category;
     option.text = category;
     categoriesListSelect.append(option);
