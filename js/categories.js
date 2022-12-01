@@ -61,9 +61,14 @@ function addNewCategory()
 
 function updateCtegories(category)
 {
+    let searchCategories = document.getElementById("categoryFilterSelect");
     let categoriesListSelect = document.getElementById("newTaskCategorySelect");
+
     let option = document.createElement("option");
     option.value = category;
     option.text = category;
-    categoriesListSelect.append(option);
+
+    searchCategories.appendChild(option.cloneNode(true));
+    categoriesListSelect.appendChild(option.cloneNode(true));
+
 }
