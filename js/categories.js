@@ -12,6 +12,15 @@ function initCategories(){
     submitNewCategory.addEventListener("click",addNewCategory);
     togCategoryBtn = document.getElementById("popUpBtn");
     togCategoryBtn.addEventListener("click", toggleCategoryBtn);
+
+    let searchCategories = document.getElementById("categoryFilterSelect");
+
+    let option = document.createElement("option");
+    option.value = "none";
+    option.text = "No filter";
+    option.selected = true;
+
+    searchCategories.appendChild(option.cloneNode(true));
 }
 
 
