@@ -72,3 +72,7 @@ function updateCtegories(category)
     categoriesListSelect.appendChild(option.cloneNode(true));
 
 }
+
+function getColor(cat){
+    return categories[cat];
+}
