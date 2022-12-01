@@ -42,9 +42,21 @@ function addTask () {
 }
 
 function addTaskNode() {
-
+    var date = document.getElementById("dateInput").value;
     let dayTaskDiv = document.getElementById("dayTasksDiv");
-    
+    let dayTasks = tasks[date]
+
+    let taskDiv = document.createElement("div");
+    let taskName = document.createElement("h6");
+    let category = document.createElement("p");
+
+    taskName.innerText = dayTasks[dayTasks.length-1][0];
+    category.innerText = dayTasks[dayTasks.length-1][1];
+
+    taskDiv.appendChild(taskName);
+    taskDiv.appendChild(category);
+    taskDiv.style.backgroundColor = getColor(category.innerText);
+    dayTaskDiv.appendChild(taskDiv);
 }
 
 function retrieveTasks(){
