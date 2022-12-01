@@ -42,5 +42,44 @@ function addTask () {
 }
 
 function addTaskNode() {
+    var date = document.getElementById("dateInput").value;
+    let dayTaskDiv = document.getElementById("dayTasksDiv");
+    let dayTasks = tasks[date]
 
+    let taskDiv = document.createElement("div");
+    let taskName = document.createElement("h6");
+    let category = document.createElement("p");
+
+    taskName.innerText = dayTasks[dayTasks.length-1][0];
+    category.innerText = dayTasks[dayTasks.length-1][1];
+
+    taskDiv.appendChild(taskName);
+    taskDiv.appendChild(category);
+    taskDiv.style.backgroundColor = getColor(category.innerText);
+    dayTaskDiv.appendChild(taskDiv);
+}
+
+function retrieveTasks(){
+    document.getElementById("categoryFilterSelect").selectedIndex = 0;
+
+    var date = document.getElementById("dateInput").value;
+    let dayTaskDiv = document.getElementById("dayTasksDiv");
+    dayTaskDiv.innerHTML="";
+    
+    let daysTasks = tasks[date];
+    if(daysTasks){
+        for(let i=0; i<daysTasks.length;i++){
+            
+            let taskDiv = document.createElement("div");
+            let taskName = document.createElement("h6");
+            let category = document.createElement("p");
+            taskName.innerText = daysTasks[i][0];
+            category.innerText = daysTasks[i][1];
+
+            taskDiv.appendChild(taskName);
+            taskDiv.appendChild(category);
+            taskDiv.style.backgroundColor = getColor(category.innerText);
+            dayTaskDiv.appendChild(taskDiv);
+        }
+    }
 }

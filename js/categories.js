@@ -12,6 +12,19 @@ function initCategories(){
     submitNewCategory.addEventListener("click",addNewCategory);
     togCategoryBtn = document.getElementById("popUpBtn");
     togCategoryBtn.addEventListener("click", toggleCategoryBtn);
+
+    // initialize selected option
+    let searchCategories = document.getElementById("categoryFilterSelect");
+
+    let option = document.createElement("option");
+    option.value = "none";
+    option.text = "No filter";
+    option.selected = true;
+
+    searchCategories.appendChild(option.cloneNode(true));
+
+    selectFilter = document.getElementById("categoryFilterSelect");
+    selectFilter.addEventListener("change", filterCategories);
 }
 
 
@@ -71,4 +84,59 @@ function updateCtegories(category)
     searchCategories.appendChild(option.cloneNode(true));
     categoriesListSelect.appendChild(option.cloneNode(true));
 
+}
+
+function getColor(cat){
+    return categories[cat];
+}
+
+
+function filterCategories()
+{
+    var date = document.getElementById("dateInput").value;
+    let dayTaskDiv = document.getElementById("dayTasksDiv");
+    dayTaskDiv.innerHTML="";
+
+    var selectedCategory = document.getElementById("categoryFilterSelect");
+    var cat = selectedCategory.options[selectedCategory.selectedIndex].text;
+
+    console.log(cat);
+    
+    let daysTasks = tasks[date];
+
+    if(daysTasks && cat == "No filter"){
+        for(let i=0; i<daysTasks.length;i++){
+            
+            let taskDiv = document.createElement("div");
+            let taskName = document.createElement("h6");
+            let category = document.createElement("p");
+            taskName.innerText = daysTasks[i][0];
+            category.innerText = daysTasks[i][1];
+
+            taskDiv.appendChild(taskName);
+            taskDiv.appendChild(category);
+            taskDiv.style.backgroundColor = getColor(category.innerText);
+            dayTaskDiv.appendChild(taskDiv);
+        }
+    }
+    else if (daysTasks && cat != "No filter")
+    {
+        for (let i=0; i<daysTasks.length; i++)
+        {
+            if (daysTasks[i][1] == cat)
+            {
+                let taskDiv = document.createElement("div");
+                let taskName = document.createElement("h6");
+                let category = document.createElement("p");
+                taskName.innerText = daysTasks[i][0];
+                category.innerText = daysTasks[i][1];
+
+                taskDiv.appendChild(taskName);
+                taskDiv.appendChild(category);
+                taskDiv.style.backgroundColor = getColor(category.innerText);
+                dayTaskDiv.appendChild(taskDiv);
+            }
+        }
+
+    }
 }

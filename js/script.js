@@ -5,5 +5,7 @@ function init() {
 
     document.getElementById("category").style.display = "none";
     
+    document.getElementById("dateInput").onchange = retrieveTasks;
+
     initCategories();
 }
