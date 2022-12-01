@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To do List</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/categories.js"></script>
+    <script src="js/tasks.js"></script>
     <script src="js/script.js"></script>
 </head>
 <body onload="init()">
-    <div id="category">
+    <div id="category" style="margin-left: 5%; margin-top: 90px; position: absolute;">
         <label>Enter a category: </label>
         <input id="newCategoryNameInput" type="text" name="category">
         <br>
@@ -19,13 +21,10 @@
         <input id="submitNewCategoryBtn" type="button" value="Enter">
     </div>
     
-    <div id="mainContainerDiv">
+    <div id="mainContainerDiv" style="margin-left: 50%; margin-top: 70px; position: absolute;">
 
         <input id="dateInput" type="date" name="date">
         <select id="categoryFilterSelect">
-            <option name="categoryFilter" value="school">school</option>
-            <option name="categoryFilter" value="home">home</option>
-            <option name="categoryFilter" value="food">food</option>
         </select>
         
         <div id="dayTasksDiv">
@@ -38,13 +37,11 @@
             <input id="newTaskNameInput" placeholder="Task name:" type="text" name="taskName">
             <br>
             <select id="newTaskCategorySelect">
-                <option name="newTaskCategory" value="school">school</option>
-                <option name="newTaskCategory" value="home">home</option>
-                <option name="newTaskCategory" value="food">food</option>
+
             </select>
             <br>
             <!-- for showing category div -->
-            <input id="popUpBtn" type="button" value="toggle Category btn">
+            <input id="popUpBtn" type="button" value="Add new category">
             <br>
             <br>
             <input id="addTaskBtn" type="button" value="add task" onclick="">
