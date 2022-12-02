@@ -1,5 +1,5 @@
 
-let categories = [];
+let categories = {};
 let submitNewCategory;
 let togCategoryBtn;
 // let categories = [{"newTaskCategory":"school", "color":"red"}];
@@ -70,6 +70,10 @@ function addNewCategory()
     {
         alert("You didn't enter the category name!")
     }
+
+        //store data in local storage 
+        window.localStorage.setItem("categories",  JSON.stringify(categories));
+
 }
 
 function updateCtegories(category)
@@ -105,18 +109,8 @@ function filterCategories()
     let daysTasks = tasks[date];
 
     if(daysTasks && cat == "No filter"){
-        for(let i=0; i<daysTasks.length;i++){
-            
-            let taskDiv = document.createElement("div");
-            let taskName = document.createElement("h6");
-            let category = document.createElement("p");
-            taskName.innerText = daysTasks[i][0];
-            category.innerText = daysTasks[i][1];
-
-            taskDiv.appendChild(taskName);
-            taskDiv.appendChild(category);
-            taskDiv.style.backgroundColor = getColor(category.innerText);
-            dayTaskDiv.appendChild(taskDiv);
+        for(let i=0; i<daysTasks.length;i++){ 
+            addTaskNode(i);
         }
     }
     else if (daysTasks && cat != "No filter")
@@ -125,18 +119,8 @@ function filterCategories()
         {
             if (daysTasks[i][1] == cat)
             {
-                let taskDiv = document.createElement("div");
-                let taskName = document.createElement("h6");
-                let category = document.createElement("p");
-                taskName.innerText = daysTasks[i][0];
-                category.innerText = daysTasks[i][1];
-
-                taskDiv.appendChild(taskName);
-                taskDiv.appendChild(category);
-                taskDiv.style.backgroundColor = getColor(category.innerText);
-                dayTaskDiv.appendChild(taskDiv);
+                addTaskNode(i);
             }
         }
-
     }
 }
