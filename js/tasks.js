@@ -76,18 +76,32 @@ function addTaskNode(i) {
     let dayTasks = tasks[date];
 
     let taskDiv = document.createElement("div");
-    let taskName = document.createElement("h6");
+    let taskName = document.createElement("p");
     let category = document.createElement("p");
 
     if (i===undefined)
         i=dayTasks.length-1;
 
     taskName.innerText = dayTasks[i][0];
+    taskName.style.fontWeight = "bold";
+    taskName.style.fontSize  = "20px";
+    taskName.style.textAlign = "center";
+    taskName.style.paddingTop = "16px";
+    taskName.style.lineHeight = "0.2";
+    
     category.innerText = dayTasks[i][1];
-
+    category.style.textAlign = "center";
+    category.style.fontSize  = "14px";
+    category.style.paddingBottom = "16px";
+    category.style.color="#808080";
+    category.style.lineHeight = "0.2";
+    
     taskDiv.appendChild(taskName);
     taskDiv.appendChild(category);
-    taskDiv.style.backgroundColor = getColor(category.innerText);
+    //taskDiv.style.display = "";
+    taskDiv.style.borderRadius = "10px";
+    taskDiv.style.backgroundColor = "#F8F8F8";
+    taskDiv.style.borderLeft = "30px solid"+ getColor(category.innerText);
     dayTaskDiv.appendChild(taskDiv);
 }
 

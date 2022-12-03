@@ -22,8 +22,17 @@
     transform: scale(1.05) rotate(-1deg);
   }
   
-  
   #category{
       width: 30%;
       margin: auto;
+  }
+  
+  body{
+    background-color: #E7E7E7;
+  }
+
+  #dayTasksDiv{
+    min-width: 250px;
+    height: 300px;
+    overflow-y: auto;
   }
