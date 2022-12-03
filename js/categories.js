@@ -1,13 +1,14 @@
 
-let categories = [];
+let categories = {};
 let submitNewCategory;
 let togCategoryBtn;
-// let categories = [{"newTaskCategory":"school", "color":"red"}];
+
+// let categories = [{"newTaskCategory":"red"}];
 
 function initCategories(){
     console.log("init");
     document.getElementById("category").style.display = "none";
-    
+
     submitNewCategory = document.getElementById("submitNewCategoryBtn");
     submitNewCategory.addEventListener("click",addNewCategory);
     togCategoryBtn = document.getElementById("popUpBtn");
@@ -70,16 +71,20 @@ function addNewCategory()
     {
         alert("You didn't enter the category name!")
     }
+
+        //store data in local storage 
+        window.localStorage.setItem("categories",  JSON.stringify(categories));
+
 }
 
-function updateCtegories(category)
+function updateCtegories(categoryName)
 {
     let searchCategories = document.getElementById("categoryFilterSelect");
     let categoriesListSelect = document.getElementById("newTaskCategorySelect");
 
     let option = document.createElement("option");
-    option.value = category;
-    option.text = category;
+    option.value = categoryName;
+    option.text = categoryName;
 
     searchCategories.appendChild(option.cloneNode(true));
     categoriesListSelect.appendChild(option.cloneNode(true));
@@ -105,18 +110,8 @@ function filterCategories()
     let daysTasks = tasks[date];
 
     if(daysTasks && cat == "No filter"){
-        for(let i=0; i<daysTasks.length;i++){
-            
-            let taskDiv = document.createElement("div");
-            let taskName = document.createElement("h6");
-            let category = document.createElement("p");
-            taskName.innerText = daysTasks[i][0];
-            category.innerText = daysTasks[i][1];
-
-            taskDiv.appendChild(taskName);
-            taskDiv.appendChild(category);
-            taskDiv.style.backgroundColor = getColor(category.innerText);
-            dayTaskDiv.appendChild(taskDiv);
+        for(let i=0; i<daysTasks.length;i++){ 
+            addTaskNode(i);
         }
     }
     else if (daysTasks && cat != "No filter")
@@ -125,18 +120,8 @@ function filterCategories()
         {
             if (daysTasks[i][1] == cat)
             {
-                let taskDiv = document.createElement("div");
-                let taskName = document.createElement("h6");
-                let category = document.createElement("p");
-                taskName.innerText = daysTasks[i][0];
-                category.innerText = daysTasks[i][1];
-
-                taskDiv.appendChild(taskName);
-                taskDiv.appendChild(category);
-                taskDiv.style.backgroundColor = getColor(category.innerText);
-                dayTaskDiv.appendChild(taskDiv);
+                addTaskNode(i);
             }
         }
-
     }
 }
