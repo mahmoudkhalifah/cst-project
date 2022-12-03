@@ -47,8 +47,28 @@ function addTaskNode() {
     let dayTasks = tasks[date]
 
     let taskDiv = document.createElement("div");
-    let taskName = document.createElement("h6");
+    let taskName = document.createElement("p");
     let category = document.createElement("p");
+
+    taskDiv.className='todo';
+   
+    
+
+    taskDiv.onclick=function(){
+                                let doneTask=this.children[0];
+                                if (this.className=='todo')
+                                {
+                                    this.className='done';
+                                    doneTask.style='text-decoration-line: line-through;';
+                                    this.style='opacity: 0.5;';
+                                }
+                                else{
+                                    this.className='todo';
+                                    doneTask.style='text-decoration-line: none;';
+                                    this.style='opacity: 1;';
+                                }
+                                this.style.backgroundColor = getColor(category.innerText);
+    }
 
     taskName.innerText = dayTasks[dayTasks.length-1][0];
     category.innerText = dayTasks[dayTasks.length-1][1];
@@ -57,6 +77,11 @@ function addTaskNode() {
     taskDiv.appendChild(category);
     taskDiv.style.backgroundColor = getColor(category.innerText);
     dayTaskDiv.appendChild(taskDiv);
+}
+
+function changeState(div)
+{
+    div.style="text-decoration-line: line-through;";
 }
 
 function retrieveTasks(){
