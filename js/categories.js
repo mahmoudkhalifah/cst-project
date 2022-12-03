@@ -2,12 +2,13 @@
 let categories = {};
 let submitNewCategory;
 let togCategoryBtn;
-// let categories = [{"newTaskCategory":"school", "color":"red"}];
+
+// let categories = [{"newTaskCategory":"red"}];
 
 function initCategories(){
     console.log("init");
     document.getElementById("category").style.display = "none";
-    
+
     submitNewCategory = document.getElementById("submitNewCategoryBtn");
     submitNewCategory.addEventListener("click",addNewCategory);
     togCategoryBtn = document.getElementById("popUpBtn");
@@ -76,14 +77,14 @@ function addNewCategory()
 
 }
 
-function updateCtegories(category)
+function updateCtegories(categoryName)
 {
     let searchCategories = document.getElementById("categoryFilterSelect");
     let categoriesListSelect = document.getElementById("newTaskCategorySelect");
 
     let option = document.createElement("option");
-    option.value = category;
-    option.text = category;
+    option.value = categoryName;
+    option.text = categoryName;
 
     searchCategories.appendChild(option.cloneNode(true));
     categoriesListSelect.appendChild(option.cloneNode(true));
