@@ -53,9 +53,10 @@
     float: right;
     width: 55%;
     padding: 16px;
+    overflow-y: auto;
+    max-height: 400px;
     margin-right: 16px;
     text-align: center;
-    overflow-y: auto;
     background-color: #E7E7E7;
   }
   
