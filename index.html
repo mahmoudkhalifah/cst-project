@@ -11,41 +11,49 @@
     <script src="js/script.js"></script>
 </head>
 <body onload="init()">
-    <div id="category" style="margin-left: 5%; margin-top: 90px; position: absolute;">
-        <label>Enter a category: </label>
-        <input id="newCategoryNameInput" type="text" name="category">
-        <br>
-        <input id="newCategoryColorInput" type="color" name="color">
-        <br>
-        <br>
-        <input id="submitNewCategoryBtn" type="button" value="Enter" class="BtnStyle">
-    </div>
     
-    <div id="mainContainerDiv" style="margin-left: 50%; margin-top: 70px; position: absolute;">
-
+    <div id="headDiv">
         <input id="dateInput" type="date" name="date">
         <select id="categoryFilterSelect">
         </select>
-        
-        <div id="dayTasksDiv">
-            
-        </div>
+    </div>
+
+    <div id="mainContainerDiv">
 
         <div id="newTaskDiv">
             <label>Task name: </label>
-            <br>
             <input id="newTaskNameInput" placeholder="Task name:" type="text" name="taskName">
             <br>
             <select id="newTaskCategorySelect">
 
             </select>
             <br>
+            <input id="addTaskBtn" type="button" value="add task" onclick="" class="BtnStyle">
+            <br>
+            <br>
             <!-- for showing category div -->
             <input id="popUpBtn" type="button" value="Add new category" class="BtnStyle">
+        </div>
+        <!--"margin-left: 5%; margin-top: 90px; position: absolute;"-->
+        <div id="category">
+            <label>Enter a category: </label>
+            <input id="newCategoryNameInput" type="text" name="category">
+            <input id="newCategoryColorInput" type="color" name="color">
             <br>
             <br>
-            <input id="addTaskBtn" type="button" value="add task" onclick="" class="BtnStyle">
+            <input id="submitNewCategoryBtn" type="button" value="Enter" class="BtnStyle">
+        </div>
+
+        <div id="deleteTaskDiv">
+            <input class="deleteBtn" type="button" value="Delete all tasks of this day">
+            <br>
+            <input class="deleteBtn" type="button" value="Delete Everything">
         </div>
     </div>
+
+    <div id="dayTasksDiv">
+            
+    </div>
+
 </body>
 </html>

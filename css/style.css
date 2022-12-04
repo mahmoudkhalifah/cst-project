@@ -15,6 +15,8 @@
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
+
+    min-width: 300px;
   }
   
   .BtnStyle:hover {
@@ -22,17 +24,79 @@
     transform: scale(1.05) rotate(-1deg);
   }
   
-  #category{
-      width: 30%;
-      margin: auto;
-  }
   
   body{
+    background-color: #FFFFFF;
+  }
+  
+  #headDiv{
+    width: 100%;
+    text-align: center;
+    margin: 16px;
+    padding: 20px;
     background-color: #E7E7E7;
+  }
+  #dateInput{
+    min-width: 300px; 
+    text-align: center; 
+    margin-right: 40px;
+  }
+  
+  #mainContainerDiv{
+    float: left;
+    width: 33%;
+    margin-left: 16px;
+    text-align: center;
   }
 
   #dayTasksDiv{
-    min-width: 250px;
-    height: 300px;
+    float: right;
+    width: 55%;
+    padding: 16px;
+    margin-right: 16px;
+    text-align: center;
     overflow-y: auto;
+    background-color: #E7E7E7;
+  }
+  
+  #newTaskDiv{
+    background-color: #E7E7E7;
+    padding: 20px;
+  }
+  
+  #category{
+    /*
+      width: 30%;*/
+
+    margin-top: 25px;
+    background-color: #E7E7E7;
+    padding: 20px;
+  }
+
+  #deleteTaskDiv{
+    margin-top: 25px;
+    background-color: #E7E7E7;
+    padding: 20px;
+  }
+  .deleteBtn{
+    margin-bottom: 10px;
+    padding: 10px;
+    color: #FFFFFF;
+    min-width: 300px;
+    border-radius: 10px;
+    background-color: #C93C3C;
+  }
+
+  #categoryFilterSelect{
+    min-width: 300px; 
+    text-align: center; 
+    margin-left: 40px;
+  }
+
+  #newTaskCategorySelect{
+    min-width: 300px;
+    margin: 12px;
+  }
+  #newTaskNameInput{
+    min-width: 200px;
   }
