@@ -108,10 +108,25 @@
     height: 25px;
   }
 
+  .colorPick {
+    width:25px;
+    height:25px;
+    overflow: hidden;
+    border-radius:100%;
+    display: inline-block;
+    position: relative;
+    top: 7px;
+  }
+
+
   input[type="color"] {
-    height: 25px;
+    position: relative;
+    right: 10px;
+    bottom: 7px;
+    width:200%;
+    height:200%;
+    margin: auto;
     padding: 0;
-    margin-left: 8px;
   }
 
   select {
