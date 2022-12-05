@@ -31,10 +31,17 @@ function addNewCategory()
     let cat_color = document.getElementById("newCategoryColorInput").value;
     if (cat_value)
     {
+        //should check if the same category exists
+        for (var i in categories) {
+            if (i == cat_value) {
+                alert("this category already exists");
+            }
+        }
         categories[cat_value] = cat_color;
     
-        updateCtegories(cat_value);
+        updateCategories(cat_value);
         console.log(categories);
+        document.getElementById("newCategoryNameInput").value = "";
     }
     else
     {
@@ -46,7 +53,7 @@ function addNewCategory()
 
 }
 
-function updateCtegories(categoryName)
+function updateCategories(categoryName)
 {
     let searchCategories = document.getElementById("categoryFilterSelect");
     let categoriesListSelect = document.getElementById("newTaskCategorySelect");
@@ -93,4 +100,9 @@ function filterCategories()
             }
         }
     }
+}
+
+function deleteAllCategories() {
+    categories = {};
+    window.localStorage.setItem("categories",  JSON.stringify({}));
 }

@@ -12,7 +12,7 @@
 </head>
 <body onload="init()">
     
-    <div id="headDiv">
+    <div id="headDiv" class="div">
         <input id="dateInput" type="date" name="date">
         <select id="categoryFilterSelect">
         </select>
@@ -20,7 +20,7 @@
 
     <div id="mainContainerDiv">
 
-        <div id="newTaskDiv">
+        <div id="newTaskDiv" class="div">
             <label>Task name: </label>
             <input id="newTaskNameInput" placeholder="Task name:" type="text" name="taskName">
             <br>
@@ -28,30 +28,30 @@
 
             </select>
             <br>
-            <input id="addTaskBtn" type="button" value="add task" onclick="" class="BtnStyle">
+            <input id="addTaskBtn" type="button" value="add task" onclick="" class="addBtn btn">
             <br>
             <br>
             
         </div>
         <!--"margin-left: 5%; margin-top: 90px; position: absolute;"-->
-        <div id="category">
+        <div id="category" class="div">
             <label>Enter a category: </label>
-            <input id="newCategoryNameInput" type="text" name="category">
+            <input id="newCategoryNameInput" placeholder="Category name:" type="text" name="category">
             <input id="newCategoryColorInput" type="color" name="color">
             <br>
             <br>
-            <input id="submitNewCategoryBtn" type="button" value="Enter" class="BtnStyle">
+            <input id="submitNewCategoryBtn" type="button" value="Enter" class="addBtn btn">
         </div>
 
-        <div id="deleteTaskDiv">
-            <input class="deleteBtn" type="button" value="Delete all tasks of this day">
+        <div id="deleteTaskDiv" class="div">
+            <input id="deleteDayTasks" class="deleteBtn btn" type="button" value="Delete all tasks of this day">
             <br>
-            <input class="deleteBtn" type="button" value="Delete Everything">
+            <input id="deleteEverything" class="deleteBtn btn" type="button" value="Delete Everything">
         </div>
     </div>
 
-    <div id="dayTasksDiv">
-            
+    <div id="dayTasksDiv" class="div">
+        
     </div>
 
 </body>
