@@ -194,3 +194,11 @@
   #progressBar {
     background-color: #67DA3F;
   }
+  
+  .taskDelBtn {
+    height: 20px;
+    width:20px;
+    position:relative;
+    top:5px;
+    border-radius: 100%;
+  }

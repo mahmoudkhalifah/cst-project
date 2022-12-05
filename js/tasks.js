@@ -87,7 +87,7 @@ function addTaskNode(i) {
     delBtn.type = "image";
     delBtn.className = "btn deleteBtn";
     //delBtn.style = "width: auto; position:relative; bottom:20px;";
-    delBtn.style = "height: 20px; width:20px; position:relative; top:5px;";
+    delBtn.classList.add("taskDelBtn");
     delBtn.src = "images/trash-can.png";
 
     delBtn.onclick = deleteTask;
@@ -161,8 +161,6 @@ function deleteAllTasks() {
 
 
 function checkTask() {
-    //animation
-    //sounds
     var checkAudio = new Audio("audios/check.mp3");
     let taskDiv = this;
     let doneTask = this.firstElementChild;
@@ -195,7 +193,6 @@ function checkTask() {
             }
         }, 5);
     }
-    //console.log(tasks[date]);
     doneTask.classList.toggle('done');
     updateProgressBar(date);
     
@@ -246,7 +243,6 @@ function updateProgressBar(date) {
             timer = setInterval(function () {
                 if (w > 1) {
                     w -= 1;
-                    //console.log("w" + w);
                     document.getElementById("progressBar").style.width = w + "%";
                 }
                 if (w <= progress) {
@@ -256,7 +252,6 @@ function updateProgressBar(date) {
         } else if(progress > w) {
             timer = setInterval(function () {
                 w += 1;
-                //console.log("w" + w);
                 document.getElementById("progressBar").style.width = w + "%";
                 if (w > progress - 1) {
                     clearInterval(timer);
