@@ -141,6 +141,9 @@
     margin-top: 20px;
     box-sizing: border-box;
     height: 80px;
+    box-shadow: rgba(20, 21, 21, 0.2) 0 -10px 10px -7px inset,rgba(13, 13, 13, 0.09) 0 1px 2px,rgba(20, 21, 20, 0.09) 0 1px 2px,rgba(25, 26, 26, 0.09) 0 1px 2px,rgba(17, 17, 17, 0.09) 0 2px 4px,rgba(15, 15, 15, 0.09) 0 4px 8px;
+
+  
     /* padding: 0px 0 10px 0; */
     
   }

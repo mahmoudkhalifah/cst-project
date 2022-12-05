@@ -214,11 +214,12 @@ function deleteTask() {
             clearInterval(timer);
         }
     }, 10);
+    var status = tasks[date][id][2]!='done';
     tasks[date].splice(id, 1);
-    window.localStorage.setItem("taskList", JSON.stringify(tasks));
-    if (calculateProgress(date)==100) {
+    if (calculateProgress(date)==100 && status) {
         goodJobPlay();
     }
+    window.localStorage.setItem("taskList", JSON.stringify(tasks));
     retrieveTasks();
 
     event.stopPropagation();
@@ -252,7 +253,7 @@ function updateProgressBar(date) {
                     clearInterval(timer);
                 }
             }, 10);
-        } else {
+        } else if(progress > w) {
             timer = setInterval(function () {
                 w += 1;
                 //console.log("w" + w);
