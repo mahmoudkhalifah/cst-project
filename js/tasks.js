@@ -99,6 +99,11 @@ function addTaskNode(i) {
     category.innerText = dayTasks[i][1];
     category.classList.add("taskCategory");
 
+    if (dayTasks[i][2]=="done") {
+        taskDiv.style.opacity=0.5;
+        taskInfoDiv.classList.add("done");
+    }
+
     taskDiv.onclick = checkTask;
 
     taskInfoDiv.appendChild(taskName);
@@ -134,7 +139,7 @@ function clearTasksNodes() {
 
 
 function deleteAllDayTasks() {
-    var flag = confirm("are you sure you want to delete all tasks of chosen day ?");
+    var flag = confirm("are you sure you want to delete all tasks of chosen ?");
     if(flag) {    
         var date = document.getElementById("dateInput").value;
         tasks[date] = [];
@@ -148,27 +153,61 @@ function deleteAllTasks() {
     window.localStorage.setItem("taskList", JSON.stringify({}));
 }
 
+var checkAudio = new Audio("audios/check.mp3");
+
 function checkTask() {
-    let doneTask=this.firstElementChild.firstElementChild;
-    if (this.className.indexOf('todo')==-1)
+    //animation
+    //sounds
+    let taskDiv = this;
+    let doneTask=this.firstElementChild;
+    var date = document.getElementById("dateInput").value;
+    if (doneTask.className.indexOf('done')==-1)
     {
-        doneTask.style.textDecoration = 'line-through';
+        // doneTask.style.textDecoration = 'line-through';
+        tasks[date][taskDiv.id][2] = "done";
         this.style.opacity=0.5;
+        checkAudio.play();
+        var o = 1;
+        var timer = setInterval(function() {
+            o-=0.01;
+            taskDiv.style.opacity = o;
+            if(o<0.51) {
+                clearInterval(timer);
+            }
+        },5);
     }
     else{
-        doneTask.style='text-decoration-line: none;';
-        this.style.opacity=1;
+        // doneTask.style='text-decoration-line: none;';
+        tasks[date][taskDiv.id][2] = "todo";
+        var o = 0.5;
+        var timer = setInterval(function() {
+            o+=0.01;
+            taskDiv.style.opacity = o;
+            if(o>0.99) {
+                clearInterval(timer);
+            }
+        },5);
     }
-    this.classList.toggle('todo');
+    console.log(tasks[date]);
+    doneTask.classList.toggle('done');
+    window.localStorage.setItem("taskList", JSON.stringify(tasks));
 }
 
 function deleteTask() {
-    //animation
     var taskDiv = this.parentElement;
     var id = taskDiv.id;
     var date = document.getElementById("dateInput").value;
-    taskDiv.remove();
+    var o = taskDiv.style.opacity;
+    var timer = setInterval(function() {
+        o-=0.01;
+        taskDiv.style.opacity = o;
+        if(o<0) {
+            clearInterval(timer);
+            taskDiv.remove();
+        }
+    },10);
     tasks[date].splice(id,1);
     window.localStorage.setItem("taskList", JSON.stringify(tasks));
+    event.stopPropagation();
     //retrieveTasks();
 }
