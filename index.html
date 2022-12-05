@@ -5,16 +5,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To do List</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/categories.js"></script>
+    <script src="js/tasks.js"></script>
+    <script src="js/script.js"></script>
 </head>
-<body>
+<body onload="init()">
     
-    <div class="main">
+    <div id="headDiv" class="div">
+        <input id="dateInput" type="date" name="date">
+        <select id="categoryFilterSelect">
+        </select>
+    </div>
 
+    <div id="mainContainerDiv">
+
+        <div id="newTaskDiv" class="div">
+            <label>Task name: </label>
+            <input id="newTaskNameInput" placeholder="Task name:" type="text" name="taskName">
+            <br>
+            <select id="newTaskCategorySelect">
+
+            </select>
+            <br>
+            <input id="addTaskBtn" type="button" value="add task" onclick="" class="addBtn btn">
+            <br>
+            <br>
+            
+        </div>
+        <!--"margin-left: 5%; margin-top: 90px; position: absolute;"-->
+        <div id="category" class="div">
+            <label>Enter a category: </label>
+            <input id="newCategoryNameInput" placeholder="Category name:" type="text" name="category">
+            <div class="colorPick"><input id="newCategoryColorInput" value="#ff4578" type="color" name="color"></div>
+            <br>
+            <br>
+            <input id="submitNewCategoryBtn" type="button" value="Enter" class="addBtn btn">
+        </div>
+
+        <div id="deleteTaskDiv" class="div">
+            <input id="deleteDayTasks" class="deleteBtn btn" type="button" value="Delete all tasks of this day">
+            <br>
+            <input id="deleteEverything" class="deleteBtn btn" type="button" value="Delete Everything">
+        </div>
+    </div>
+
+    <div id="dayTasksDiv" class="div">
         
     </div>
 
-    <div id="category">
-
+    <div id="progressDiv" class="div progress">
+        <div id="progressBar" style="width: 1%;" class="div progress">
+            
+        </div>
+        
     </div>
 
 </body>
