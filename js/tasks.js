@@ -29,11 +29,12 @@ function checkLocalStorage() {
     if (window.localStorage.getItem("taskList") !== null) {
         tasks = JSON.parse(window.localStorage.getItem("taskList"))
         var date = document.getElementById("dateInput").value;
-        let currentDateTask = tasks[date]?tasks[date]:[];
+        let currentDateTask = tasks[date] ? tasks[date] : [];
 
         for (let i = 0; i < currentDateTask.length; i++) {
             addTaskNode(i);
         }
+        updateProgressBar(date);
     }
 }
 
@@ -64,9 +65,9 @@ function addTask() {
 
     //store data in local storage 
     window.localStorage.setItem("taskList", JSON.stringify(tasks));
-
+    updateProgressBar(date);
     // console.log(tasks["2022-12-01"]);
-    console.log(tasks);
+    // console.log(tasks);
 }
 
 
@@ -83,10 +84,11 @@ function addTaskNode(i) {
     let category = document.createElement("p");
     let delBtn = document.createElement("input");
 
-    delBtn.type = "button";
+    delBtn.type = "image";
     delBtn.className = "btn deleteBtn";
-    delBtn.style = "width: auto; position:relative; bottom:20px";
-    delBtn.value = "delete";
+    //delBtn.style = "width: auto; position:relative; bottom:20px;";
+    delBtn.style = "height: 20px; width:20px; position:relative; top:5px;";
+    delBtn.src = "images/trash-can.png";
 
     delBtn.onclick = deleteTask;
 
@@ -99,10 +101,13 @@ function addTaskNode(i) {
     category.innerText = dayTasks[i][1];
     category.classList.add("taskCategory");
 
-    if (dayTasks[i][2]=="done") {
-        taskDiv.style.opacity=0.5;
+    if (dayTasks[i][2] == "done") {
+        taskDiv.style.opacity = 0.5;
         taskInfoDiv.classList.add("done");
     }
+
+    taskName.style = "position:relative; bottom:12px;";
+    category.style = "position:relative; bottom:5px;";
 
     taskDiv.onclick = checkTask;
 
@@ -130,6 +135,7 @@ function retrieveTasks() {
             addTaskNode(i);
         }
     }
+    updateProgressBar(date);
 }
 
 function clearTasksNodes() {
@@ -140,7 +146,7 @@ function clearTasksNodes() {
 
 function deleteAllDayTasks() {
     var flag = confirm("are you sure you want to delete all tasks of chosen ?");
-    if(flag) {    
+    if (flag) {
         var date = document.getElementById("dateInput").value;
         tasks[date] = [];
         window.localStorage.setItem("taskList", JSON.stringify(tasks));
@@ -153,43 +159,46 @@ function deleteAllTasks() {
     window.localStorage.setItem("taskList", JSON.stringify({}));
 }
 
-var checkAudio = new Audio("audios/check.mp3");
 
 function checkTask() {
     //animation
     //sounds
+    var checkAudio = new Audio("audios/check.mp3");
     let taskDiv = this;
-    let doneTask=this.firstElementChild;
+    let doneTask = this.firstElementChild;
     var date = document.getElementById("dateInput").value;
-    if (doneTask.className.indexOf('done')==-1)
-    {
-        // doneTask.style.textDecoration = 'line-through';
+    if (doneTask.className.indexOf('done') == -1) {
         tasks[date][taskDiv.id][2] = "done";
-        this.style.opacity=0.5;
-        checkAudio.play();
+        this.style.opacity = 0.5;
+        if (calculateProgress(date)==100) {
+            goodJobPlay();
+        } else {
+            checkAudio.play();
+        }
         var o = 1;
-        var timer = setInterval(function() {
-            o-=0.01;
+        var timer = setInterval(function () {
+            o -= 0.01;
             taskDiv.style.opacity = o;
-            if(o<0.51) {
+            if (o < 0.51) {
                 clearInterval(timer);
             }
-        },5);
+        }, 5);
     }
-    else{
-        // doneTask.style='text-decoration-line: none;';
+    else {
         tasks[date][taskDiv.id][2] = "todo";
         var o = 0.5;
-        var timer = setInterval(function() {
-            o+=0.01;
+        var timer = setInterval(function () {
+            o += 0.01;
             taskDiv.style.opacity = o;
-            if(o>0.99) {
+            if (o > 0.99) {
                 clearInterval(timer);
             }
-        },5);
+        }, 5);
     }
-    console.log(tasks[date]);
+    //console.log(tasks[date]);
     doneTask.classList.toggle('done');
+    updateProgressBar(date);
+    
     window.localStorage.setItem("taskList", JSON.stringify(tasks));
 }
 
@@ -198,16 +207,67 @@ function deleteTask() {
     var id = taskDiv.id;
     var date = document.getElementById("dateInput").value;
     var o = taskDiv.style.opacity;
-    var timer = setInterval(function() {
-        o-=0.01;
+    var timer = setInterval(function () {
+        o -= 0.01;
         taskDiv.style.opacity = o;
-        if(o<0) {
+        if (o < 0) {
             clearInterval(timer);
-            taskDiv.remove();
         }
-    },10);
-    tasks[date].splice(id,1);
+    }, 10);
+    tasks[date].splice(id, 1);
     window.localStorage.setItem("taskList", JSON.stringify(tasks));
+    if (calculateProgress(date)==100) {
+        goodJobPlay();
+    }
+    retrieveTasks();
+
     event.stopPropagation();
-    //retrieveTasks();
+}
+
+function calculateProgress(date) {
+    var numOfTasks = tasks[date].length;
+    var numOfDoneTasks = 0;
+    for (var i = 0; i < numOfTasks; i++) {
+        if (tasks[date][i][2] == "done") {
+            numOfDoneTasks += 1;
+        }
+    }
+    return (numOfDoneTasks / numOfTasks) * 100;
+}
+
+function updateProgressBar(date) {
+    if (tasks[date] && tasks[date].length != 0) {
+        var progress = calculateProgress(date);
+        console.log("progress: " + progress);
+        var w = parseInt(document.getElementById("progressBar").style.width) || 0;
+        var timer;
+        if (progress < w) {
+            timer = setInterval(function () {
+                if (w > 1) {
+                    w -= 1;
+                    //console.log("w" + w);
+                    document.getElementById("progressBar").style.width = w + "%";
+                }
+                if (w <= progress) {
+                    clearInterval(timer);
+                }
+            }, 10);
+        } else {
+            timer = setInterval(function () {
+                w += 1;
+                //console.log("w" + w);
+                document.getElementById("progressBar").style.width = w + "%";
+                if (w > progress - 1) {
+                    clearInterval(timer);
+                }
+            }, 10);
+        }
+    } else {
+        document.getElementById("progressBar").style.width = "1%";
+    }
+}
+
+function goodJobPlay () {
+    var goodJobAudio = new Audio("audios/Good Job.mp3");
+    goodJobAudio.play();
 }

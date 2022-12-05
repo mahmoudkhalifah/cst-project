@@ -55,7 +55,7 @@
     padding: 10px 40px 10px 40px;
     overflow-y: auto;
     text-align: center;
-    height: 480px;
+    height: 460px;
   }
 
   .div {
@@ -145,4 +145,20 @@
     padding-bottom: 16px;
     color: rgb(128, 128, 128);
     line-height: 0.2;
+  }
+
+  .progress {
+    height: 10px;
+    padding: 0;
+    margin: 0;
+  }
+
+  #progressDiv {
+    width: 61%;
+    margin-top: 10px;
+    float: right;
+  }
+
+  #progressBar {
+    background-color: #67DA3F;
   }
