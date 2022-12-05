@@ -13,7 +13,10 @@ function init() {
 }
 
 function deleteEverything () {
-    deleteAllCategories();
-    deleteAllTasks();
-    window.location.reload();
+    var flag = confirm("are you sure you want to delete all tasks and categories ?");
+    if (flag) {
+        deleteAllCategories();
+        deleteAllTasks();
+        window.location.reload();
+    }
 }

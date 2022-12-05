@@ -76,8 +76,19 @@ function addTaskNode(i) {
     let dayTasks = tasks[date];
 
     let taskDiv = document.createElement("div");
+    let taskInfoDiv = document.createElement("div");
+    taskInfoDiv.style = "display: inline-block; width:80%;"
+
     let taskName = document.createElement("p");
     let category = document.createElement("p");
+    let delBtn = document.createElement("input");
+
+    delBtn.type = "button";
+    delBtn.className = "btn deleteBtn";
+    delBtn.style = "width: auto; position:relative; bottom:20px";
+    delBtn.value = "delete";
+
+    delBtn.onclick = deleteTask;
 
     if (i === undefined)
         i = dayTasks.length - 1;
@@ -88,11 +99,15 @@ function addTaskNode(i) {
     category.innerText = dayTasks[i][1];
     category.classList.add("taskCategory");
 
-    taskDiv.appendChild(taskName);
-    taskDiv.appendChild(category);
-    //taskDiv.style.display = "";
+    taskDiv.onclick = checkTask;
+
+    taskInfoDiv.appendChild(taskName);
+    taskInfoDiv.appendChild(category);
+    taskDiv.append(taskInfoDiv);
+    taskDiv.appendChild(delBtn);
     taskDiv.classList.add("task");
     taskDiv.style.borderLeft = "30px solid" + getColor(category.innerText);
+    taskDiv.id = i;
     dayTaskDiv.appendChild(taskDiv);
 }
 
@@ -119,13 +134,41 @@ function clearTasksNodes() {
 
 
 function deleteAllDayTasks() {
-    var date = document.getElementById("dateInput").value;
-    tasks[date] = [];
-    window.localStorage.setItem("taskList", JSON.stringify(tasks));
-    retrieveTasks();
+    var flag = confirm("are you sure you want to delete all tasks of chosen day ?");
+    if(flag) {    
+        var date = document.getElementById("dateInput").value;
+        tasks[date] = [];
+        window.localStorage.setItem("taskList", JSON.stringify(tasks));
+        retrieveTasks();
+    }
 }
 
 function deleteAllTasks() {
     tasks = {};
     window.localStorage.setItem("taskList", JSON.stringify({}));
+}
+
+function checkTask() {
+    let doneTask=this.firstElementChild.firstElementChild;
+    if (this.className.indexOf('todo')==-1)
+    {
+        doneTask.style.textDecoration = 'line-through';
+        this.style.opacity=0.5;
+    }
+    else{
+        doneTask.style='text-decoration-line: none;';
+        this.style.opacity=1;
+    }
+    this.classList.toggle('todo');
+}
+
+function deleteTask() {
+    //animation
+    var taskDiv = this.parentElement;
+    var id = taskDiv.id;
+    var date = document.getElementById("dateInput").value;
+    taskDiv.remove();
+    tasks[date].splice(id,1);
+    window.localStorage.setItem("taskList", JSON.stringify(tasks));
+    //retrieveTasks();
 }
