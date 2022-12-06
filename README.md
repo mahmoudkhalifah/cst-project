@@ -9,8 +9,8 @@
 <li>filter day tasks by categories</li>
 <li>mark task as done</li>
 <li>delete a task</li>
-<li>delete all tasks and categories</li>
 <li>delete all tasks of a day</li>
+<li>delete all tasks and categories</li>
 </ol>
 
 <h2>Project demo</h2>
