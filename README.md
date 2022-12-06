@@ -25,6 +25,7 @@
 
 <h2>Project demo</h2>
 
+* Note: The video contains sounds
 
 https://user-images.githubusercontent.com/61587804/205938170-eb205bfc-c3fa-4ddb-8813-ca12f50e700a.mp4
 
