@@ -86,7 +86,6 @@ function addTaskNode(i) {
 
     delBtn.type = "image";
     delBtn.className = "btn deleteBtn";
-    //delBtn.style = "width: auto; position:relative; bottom:20px;";
     delBtn.classList.add("taskDelBtn");
     delBtn.src = "images/trash-can.png";
 
