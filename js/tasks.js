@@ -235,7 +235,7 @@ function calculateProgress(date) {
 function updateProgressBar(date) {
     if (tasks[date] && tasks[date].length != 0) {
         var progress = calculateProgress(date);
-        console.log("progress: " + progress);
+        //console.log("progress: " + progress);
         var w = parseInt(document.getElementById("progressBar").style.width) || 0;
         var timer;
         if (progress < w) {

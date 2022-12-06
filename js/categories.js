@@ -6,7 +6,7 @@ let togCategoryBtn;
 // let categories = [{"newTaskCategory":"red"}];
 
 function initCategories(){
-    console.log("init");
+    //console.log("init");
 
     submitNewCategory = document.getElementById("submitNewCategoryBtn");
     submitNewCategory.addEventListener("click",addNewCategory);
@@ -43,7 +43,7 @@ function addNewCategory()
         if(!flag) {
             categories[cat_value] = cat_color;
             updateCategories(cat_value);
-            console.log(categories);
+            //console.log(categories);
             document.getElementById("newCategoryNameInput").value = "";
         } else {
             alert("this category already exists");
@@ -88,7 +88,7 @@ function filterCategories()
     var selectedCategory = document.getElementById("categoryFilterSelect");
     var cat = selectedCategory.options[selectedCategory.selectedIndex].text;
 
-    console.log(cat);
+    //console.log(cat);
     
     let daysTasks = tasks[date];
 
