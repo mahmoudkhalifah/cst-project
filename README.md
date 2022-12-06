@@ -24,8 +24,7 @@
 </ol>
 
 <h2>Project demo</h2>
-https://user-images.githubusercontent.com/57409035/205747854-42b49b6f-00e3-4c75-81a2-da4c126311bc.mp4
 
 
-https://user-images.githubusercontent.com/35868106/205869484-58e58cc5-cf2e-4a00-a46b-796491b225db.mp4
+https://user-images.githubusercontent.com/61587804/205938170-eb205bfc-c3fa-4ddb-8813-ca12f50e700a.mp4
 
