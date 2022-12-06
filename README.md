@@ -1,6 +1,16 @@
 <h1>Todo Web App</h1>
 <p>CST project made with html-css-js</p>
 
+<h2>Developed by</h2>
+<p>ITI intake 43 System Development (Mobile cross-platform) students</p>
+<ul>
+<li>Mahmoud Khalifa</li>
+<li>Noura Mahmoud</li>
+<li>Hassan Abdelbaset</li>
+<li>Youssef Bahgat</li>
+<li>Raneem Saleh</li>
+</ul>
+
 <h2>features</h2>
 <ol>
 <li>add a task to a day</li>
