@@ -6,9 +6,9 @@
 <li>add a task to a day</li>
 <li>add a category</li>
 <li>filter tasks by days</li>
-<li>filter tasks by categories</li>
-<li>delete a task</li>
+<li>filter day tasks by categories</li>
 <li>mark task as done</li>
+<li>delete a task</li>
 <li>delete all tasks and categories</li>
 <li>delete all tasks of a day</li>
 </ol>
