@@ -1,6 +1,9 @@
 <h1>Todo Web App</h1>
 <p>CST project made with html-css-js</p>
 
+<h2>Technologies used</h2>
+<img src="https://user-images.githubusercontent.com/35868106/206577959-670cab33-241f-4f77-925d-93c44443e74d.png" height="300">
+
 <h2>Developed by</h2>
 <p>ITI intake 43 System Development (Mobile cross-platform) students</p>
 <ul>
@@ -8,7 +11,7 @@
   <ul>
     <li>Design Screen</li>
     <li>Add Task</li>
-    <li>Delet everything(saved Tasks and categories)</li>
+    <li>Delete everything(saved Tasks and categories)</li>
     <li>Task done progress</li>
   </ul>
 </li>
@@ -46,7 +49,7 @@
 </li>
 </ul>
 
-<h2>features</h2>
+<h2>Features</h2>
 <ol>
 <li>add a task to a day</li>
 <li>add a category</li>
