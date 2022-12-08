@@ -14,10 +14,10 @@
 </li>
 <li><a href="https://github.com/Noura-Mahmoud">Noura Mahmoud</a>: helped in
   <ul>
-    <li>Design Screen</li>
-    <li>Add Category</li>
-    <li>Specifies tasks for each day</li>
     <li>Filter tasks by categories</li>
+    <li>Add Category</li>
+    <li>Design Screen</li>
+    <li>Specifies tasks for each day</li>
   </ul>
 </li>
 <li><a href="https://github.com/HasanElfalt">Hassan Abdelbaset</a>: helped in
@@ -30,18 +30,18 @@
 </li>
 <li><a href="https://github.com/itsbahgat">Youssef Bahgat</a>: helped in
   <ul>
-    <li>Design Screen</li>
     <li>Store at local storage</li>
     <li>Add audio when tasks are done</li>
     <li>Code Refactoring</li>
+    <li>Design Screen</li>
   </ul>
 </li>
 <li><a href="https://github.com/raneem74">Raneem Saleh</a>: helped in
   <ul>
-    <li>Design Screen</li>
     <li>Delete one Task</li>
     <li>Mark task done</li>
     <li>Retrieve Tasks</li>
+    <li>Design Screen</li>
   </ul>
 </li>
 </ul>
