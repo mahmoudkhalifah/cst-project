@@ -4,11 +4,11 @@
 <h2>Developed by</h2>
 <p>ITI intake 43 System Development (Mobile cross-platform) students</p>
 <ul>
-<li>Mahmoud Khalifa</li>
-<li>Noura Mahmoud</li>
-<li>Hassan Abdelbaset</li>
-<li>Youssef Bahgat</li>
-<li>Raneem Saleh</li>
+<li><a href="https://github.com/mahmoudkhalifah">Mahmoud Khalifa</a></li>
+<li><a href="https://github.com/Noura-Mahmoud">Noura Mahmoud</a></li>
+<li><a href="https://github.com/HasanElfalt">Hassan Abdelbaset</a></li>
+<li><a href="https://github.com/itsbahgat">Youssef Bahgat</a></li>
+<li><a href="https://github.com/raneem74">Raneem Saleh</a></li>
 </ul>
 
 <h2>features</h2>
