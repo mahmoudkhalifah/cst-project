@@ -4,11 +4,46 @@
 <h2>Developed by</h2>
 <p>ITI intake 43 System Development (Mobile cross-platform) students</p>
 <ul>
-<li><a href="https://github.com/mahmoudkhalifah">Mahmoud Khalifa</a></li>
-<li><a href="https://github.com/Noura-Mahmoud">Noura Mahmoud</a></li>
-<li><a href="https://github.com/HasanElfalt">Hassan Abdelbaset</a></li>
-<li><a href="https://github.com/itsbahgat">Youssef Bahgat</a></li>
-<li><a href="https://github.com/raneem74">Raneem Saleh</a></li>
+<li><a href="https://github.com/mahmoudkhalifah">Mahmoud Khalifa</a>: helped in
+  <ul>
+    <li>Design Screen</li>
+    <li>Add Task</li>
+    <li>Delet everything(saved Tasks and categories)</li>
+    <li>Task done progress</li>
+  </ul>
+</li>
+<li><a href="https://github.com/Noura-Mahmoud">Noura Mahmoud</a>: helped in
+  <ul>
+    <li>Design Screen</li>
+    <li>Add Category</li>
+    <li>Specifies tasks for each day</li>
+    <li>Filter tasks by categories</li>
+  </ul>
+</li>
+<li><a href="https://github.com/HasanElfalt">Hassan Abdelbaset</a>: helped in
+  <ul>
+    <li>Build app elements on HTML</li>
+    <li>Design Screen</li>
+    <li>Add Task node</li>
+    <li>Organize work through github</li>
+  </ul>
+</li>
+<li><a href="https://github.com/itsbahgat">Youssef Bahgat</a>: helped in
+  <ul>
+    <li>Design Screen</li>
+    <li>Store at local storage</li>
+    <li>Add audio when tasks are done</li>
+    <li>Code Refactoring</li>
+  </ul>
+</li>
+<li><a href="https://github.com/raneem74">Raneem Saleh</a>: helped in
+  <ul>
+    <li>Design Screen</li>
+    <li>Delete one Task</li>
+    <li>Mark task done</li>
+    <li>Retrieve Tasks</li>
+  </ul>
+</li>
 </ul>
 
 <h2>features</h2>
